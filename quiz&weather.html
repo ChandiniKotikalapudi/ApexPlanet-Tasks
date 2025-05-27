@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Interactive Site</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #1c1f1e;
+    }
+
+    header {
+      background-color: #09423d;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    header button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #ffffff;
+      color: #0d4531;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    header button:hover {
+      background-color: #f0f0f0;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      display: none;
+    }
+
+    .container.active {
+      display: block;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Content Styling */
+    .home-content {
+      background: #e6f6ef;
+      border: 2px solid #1acebf;
+      border-radius: 12px;
+      padding: 30px;
+      color: #123;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-container, .quiz-container, .api-container {
+      margin-bottom: 30px;
+    }
+
+    /* Add the existing styles here (from your provided CSS) */
+    .carousel-container, .quiz-container, .api-container {
+      background: rgb(243, 249, 249);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 2px solid #3aafa9;
+      margin-top: 20px;
+    }
+
+    .carousel-container img#mainImage {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .thumbnails {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .thumbnails img {
+      width: 80px;
+      height: 50px;
+      margin: 0 5px;
+      cursor: pointer;
+      opacity: 0.6;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .thumbnails img.active,
+    .thumbnails img:hover {
+      opacity: 1;
+      border: 2px solid #3aafa9;
+    }
+   .quiz-container button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #a4d4c6;
+      color: rgb(5, 3, 3);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .quiz-container button:hover {
+      background-color: #c76e22;
+    }
+
+    .quiz-container div button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border: 2px solid #0a6f6a;
+  background-color: #f7faf9;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: left;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.quiz-container div button:hover {
+  background-color: #90c2ba;
+  transform: scale(1.01);
+}
+
+.quiz-container div button.selected {
+  background-color: #b6e3db;
+  border-color: #3aafa9;
+}
+
+.quiz-container div button.correct {
+  background-color: #d4edda !important;
+  border-left: 5px solid #28a745;
+}
+
+.quiz-container div button.wrong {
+  background-color: #f8d7da !important;
+  border-left: 5px solid #dc3545;
+}
+
+ .api-container input,
+    .api-container button {
+      display: block;
+      margin: 10px auto;
+      padding: 5px;
+      width: 50%;
+      border-radius: 5px;
+      border: 1px solid #0e7f83;
+    }
+
+    .city-weather-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .city-weather-buttons button {
+      padding: 8px 12px;
+      background-color: #0b4745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .api-container button:hover {
+      background-color: #66a380;
+    }
+
+    .output {
+      text-align: center;
+      margin-top: 15px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Web Development</h1>
+    <div>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('quiz')">Quiz</button>
+      <button onclick="showSection('other')">Weather</button>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <div id="home" class="container active">
+    <div class="home-content">
+      <h2>Learn web Development</h2>
+      <p>Web development involves building and maintaining websites. It includes web design, web publishing, web programming, and database management. Front-end development focuses on the visual layout, while back-end development powers the logic and database interaction. Learning HTML, CSS, JavaScript, and frameworks like React or Vue.js is essential for modern web development.</p>
+     <img src="https://web.dev/static/images/learn-header_856.png"/>
+    </div>
+  </div>
+
+  <!-- Quiz Section -->
+  <div id="quiz" class="container">
+    <section class="carousel-container">
+      <img id="mainImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmDMfiF1yLyIpYYbBuxqemdjdIl9DjYT2ELA&s" alt="Image 1" />
+    </section>
+
+    <section class="quiz-container">
+  <h2> Quiz🧠📚</h2>
+  <form id="quizForm">
+    <div data-question="q1">
+      <label><b>1. What tag is used for JavaScript?</b></label><br>
+      <button type="button" data-value="A">&lt;script&gt;</button>
+      <button type="button" data-value="B">&lt;js&gt;</button>
+      <button type="button" data-value="C">&lt;javascript&gt;</button>
+    </div>
+    <div data-question="q2">
+      <label><b>2. CSS stands for:</b></label><br>
+      <button type="button" data-value="A">Color Style Sheet</button>
+      <button type="button" data-value="B">Cascading Style Sheet</button>
+      <button type="button" data-value="C">Computer Style Syntax</button>
+    </div>
+    <div data-question="q3">
+      <label><b>3. Which HTML element is used to create an unordered list?</b></label><br>
+      <button type="button" data-value="A">&lt;ol&gt;</button>
+      <button type="button" data-value="B">&lt;ul&gt;</button>
+      <button type="button" data-value="C">&lt;dl&gt;</button>
+    </div>
+    <div data-question="q4">
+      <label><b>4. Which HTML tag is used to create a hyperlink?</b></label><br>
+      <button type="button" data-value="A">&lt;link&gt;</button>
+      <button type="button" data-value="B">&lt;href&gt;</button>
+      <button type="button" data-value="C">&lt;a&gt;</button>
+    </div>
+    <button type="submit">Check Answers</button>
+  </form>
+  <p class="output" id="quizOutput"></p>
+</section>
+  </div>
+
+  <!-- Weather Section -->
+  <div id="other" class="container">
+    <section class="api-container">
+      <h2>😂 Joke Time</h2>
+      <button onclick="fetchJoke()">Get Joke</button>
+      <p id="jokeOutput" class="output"></p>
+
+      <h2>🌦️ Weather</h2>
+      <input type="text" id="cityInput" placeholder="Enter city name (e.g., Delhi)">
+      <button onclick="fetchWeatherForCity()"><b>Get Weather</b></button>
+      <p id="weatherOutput" class="output"></b></p>
+
+      <div class="city-weather-buttons">
+        <button onclick="fetchWeatherForCity('New York')">Newyork</button>
+        <button onclick="fetchWeatherForCity('Paris')">Paris</button>
+        <button onclick="fetchWeatherForCity('Sydney')">Sydney</button>
+        <button onclick="fetchWeatherForCity('Mumbai')">Mumbai</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.container');
+    function showSection(id) {
+      sections.forEach(section => {
+        section.classList.toggle('active', section.id === id);
+      });
+    }
+
+    // Carousel logic
+    const images = [
+      "https://codemithra.com/wp-content/uploads/2020/09/web-design-development-blog-2.jpg",
+      "https://img.freepik.com/premium-vector/quiz-time-neon-sign-design-element-light-banner_77399-1401.jpg",
+      "https://wallpapercave.com/wp/wp11723452.jpg"
+    ];
+    let currentIndex = 0;
+    const mainImage = document.getElementById('mainImage');
+    const thumbs = document.querySelectorAll('.thumbnails img');
+    function setImage(index) {
+      currentIndex = index;
+      mainImage.src = images[index];
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+      resetSlideshow();
+    }
+    let slideshowInterval = setInterval(nextImage, 3000);
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      setImage(currentIndex);
+    }
+    function resetSlideshow() {
+      clearInterval(slideshowInterval);
+      slideshowInterval = setInterval(nextImage, 3000);
+    }
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => setImage(index));
+    });
+    setImage(0);
+
+   // Handle option selection as buttons
+document.querySelectorAll('.quiz-container div').forEach(div => {
+  div.querySelectorAll('button[type="button"]').forEach(button => {
+    button.addEventListener('click', () => {
+      // Deselect all buttons in the group
+      div.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+      button.classList.add('selected');
+      div.dataset.selected = button.dataset.value;
+    });
+  });
+});
+
+// Quiz checking logic
+document.getElementById('quizForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const answers = {
+    q1: "A",
+    q2: "B",
+    q3: "B",
+    q4: "C"
+  };
+  let score = 0;
+  const output = document.getElementById('quizOutput');
+
+  document.querySelectorAll('.quiz-container div').forEach(div => {
+    const qKey = div.dataset.question;
+    const selected = div.dataset.selected;
+    const correct = answers[qKey];
+
+    // Clear previous styles
+    div.classList.remove('correct', 'wrong');
+    div.querySelectorAll('button').forEach(btn => {
+      btn.classList.remove('correct', 'wrong');
+    });
+
+    if (selected === correct) {
+      score++;
+      div.classList.add('correct');
+      div.querySelector(`button[data-value="${selected}"]`).classList.add('correct');
+    } else {
+      div.classList.add('wrong');
+      if (selected)
+        div.querySelector(`button[data-value="${selected}"]`)?.classList.add('wrong');
+      div.querySelector(`button[data-value="${correct}"]`)?.classList.add('correct');
+    }
+  });
+
+  output.textContent = `You scored ${score}/4🎉. Review the incorrect ones and try again! 🔁`
+});
+
+
+
+    // Joke API
+    async function fetchJoke() {
+      const output = document.getElementById('jokeOutput');
+      output.textContent = "Fetching...";
+      try {
+        const res = await fetch("https://v2.jokeapi.dev/joke/Any?type=single");
+        const data = await res.json();
+        output.textContent = data.joke;
+      } catch {
+        output.textContent = "Error fetching joke.";
+      }
+    }
+
+    // Weather API
+    const WEATHER_API_KEY = "a4e43d31e9754e899d0135846252205";
+    const WEATHER_API_BASE_URL = "https://api.weatherapi.com/v1/current.json";
+
+    async function fetchWeatherForCity(cityFromButton = null) {
+      const cityInput = document.getElementById('cityInput');
+      const weatherOutput = document.getElementById('weatherOutput');
+      const city = cityFromButton || cityInput.value.trim();
+      if (!city) {
+        weatherOutput.textContent = 'Please enter a city name or click a button.';
+        return;
+      }
+
+      weatherOutput.textContent = `Getting weather for ${city}...`;
+      try {
+        const response = await fetch(`${WEATHER_API_BASE_URL}?key=${WEATHER_API_KEY}&q=${city}&aqi=no`);
+        const data = await response.json();
+
+        if (response.ok) {
+          weatherOutput.innerHTML = `
+            Weather in ${data.location.name}, ${data.location.country}:<br>
+            Temperature: ${data.current.temp_c}°C<br>
+            Condition: ${data.current.condition.text}<br>
+            Humidity: ${data.current.humidity}%<br>
+            Wind Speed: ${data.current.wind_kph} kph<br>
+            Last Updated: ${new Date(data.current.last_updated).toLocaleTimeString()}
+          `;
+          if (cityFromButton) cityInput.value = cityFromButton;
+        } else {
+          weatherOutput.textContent = `Error: ${data.error?.message || 'API error'}`;
+        }
+      } catch (err) {
+        weatherOutput.textContent = 'Failed to fetch weather.';
+      }
+    }
+  </script>
+</body>
+</html>
