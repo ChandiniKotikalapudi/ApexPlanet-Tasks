@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chandini's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f4cd3e, #5fc5ed);
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(to right, #2013cd, #f4bc2e);
+      padding: 40px 40px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 10px 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0f766e;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #1e40af;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+      background:linear-gradient(to right, #f6e5a9, #6ce1f6);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      border-bottom: 3px solid #0f766e;
+      display: inline-block;
+      padding-bottom: 5px;
+      color: #0f766e;
+    }
+
+    #projects .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #f0fdf4;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 15px;
+    }
+
+    .btn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0f766e;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #115e59;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    form button {
+      background: #1e40af;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #todo input {
+      width: calc(100% - 100px);
+      padding: 10px;
+      margin-right: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .task {
+      background: #e0f2fe;
+      padding: 10px;
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 8px;
+    }
+
+    .task button {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Hi, I'm Chandini Kotikalapudi</h1>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Chandini, currently pursuing my Master of Computer Applications (MCA) at AKNk College.I’m passionate about web development and actively building my skills in front-end and full-stack technologies. My goal is to create interactive, user-friendly, and visually engaging web applications. I'm enthusiastic about learning new tools and frameworks, and I'm constantly working on personal projects to enhance my practical knowledge in HTML, CSS, JavaScript, and modern web technologies.</p>
+   <p>📧 Email: <span style="color:blue">Chandini.9396@gmail.com</span></p>
+</section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://www.salesforce.com/blog/wp-content/uploads/sites/2/2023/07/product-listing-page-crop-background.jpg" alt="Product Listing">
+        <div class="project-content">
+          <h3>Product Listing Page</h3>
+          <p>Filter and sort products dynamically. Built with HTML, CSS, JavaScript.</p>
+          <a class="btn" href="product.html" target="_blank">View Demo</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://i.ytimg.com/vi/ykuD2QOZkhc/maxresdefault.jpg" alt="To-Do App">
+        <div class="project-content">
+          <h3>To-Do App</h3>
+          <p>Track tasks efficiently with localStorage support.</p>
+          <a class="btn" href="todo.html" target="_blank">View Demo</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbRko6U6356D-To12d0Ak1VPAf1xoiOy-JQ&s" alt="Portfolio">
+        <div class="project-content">
+          <h3>Portfolio</h3>
+          <p>My responsive and stylish personal website.</p>
+          <a class="btn" href="Myportfolio (2).html" target="_blank">View Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="confirmationMsg" style="margin-top: 10px; color: green; font-weight: bold;"></p>
+    </form>
+  </section>
+
+  <script>
+    // Scroll animation on section view
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Contact form handler
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("confirmationMsg").textContent = "Message sent successfully!";
+      this.reset();
+    });
+
+  </script>
+
+</body>
+</html>
